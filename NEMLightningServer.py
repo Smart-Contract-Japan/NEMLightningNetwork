@@ -12,13 +12,14 @@ from ConfigParser import SafeConfigParser
 from tornado.options import define, options
 
 #api
-from handlers.ApiHandler import BlockAfterHandler
+from handlers.ApiHandler import ChannelHandler
+from handlers.ApiHandler import TransactionHandler
 
 
 parser = SafeConfigParser()
 parser.read("settings.INI")
 
-define("port", default=parser.get("blockexplorer", "port"), help="run on the given port", type=int)
+define("port", default=1337, help="run on the given port", type=int)
 
 if __name__ == '__main__':
 
