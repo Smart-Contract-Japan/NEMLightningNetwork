@@ -39,10 +39,10 @@ if __name__ == '__main__':
         [        
          #apis
          #initiate channel
-         (r'/api/block-after', ChannelHandler),
+         (r'/api/initiate-channel/(.*?)/(.*?)/', ChannelHandler),
 
          #send transaction
-         (r'/api/block-after', TransactionHandler),
+         (r'/api/send-transaction/(.*?)/(.*?)/', TransactionHandler),
          
         ], 
         **settings
