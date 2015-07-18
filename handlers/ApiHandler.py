@@ -18,6 +18,10 @@ class ChannelHandler(tornado.web.RequestHandler):
 		self.finish()
 		
 class TransactionHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
 	def get(self):
-		self.write(zlib.decompress(self.redis_client.zrange('blocks', 0, 2, 'desc')[0]))
+		response = yield self.api.getBlocksAfter(int(self.get_argument('height')))
+		self.write(response.body)
 		self.finish()
+
+

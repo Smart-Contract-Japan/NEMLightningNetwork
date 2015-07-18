@@ -7,7 +7,7 @@ from math import ceil,log
 
 MAIN_NET_VERSION = 0x68000001
 TEST_NET_VERSION = 0x98000001
-CURRENT_NETWORK_VERSION = TEST_NET_VERSION
+CURRENT_NETWORK_VERSION = MAIN_NET_VERSION
 
 class NemConnect:
 	def __init__(self, address, port):
@@ -25,7 +25,7 @@ class NemConnect:
 			j = r.json()
 			if j['metaData']['application'] == 'NIS':
 				return j
-		return None
+		return j
 
 	def blockAt(self, h):
 		data = { 'height': h }

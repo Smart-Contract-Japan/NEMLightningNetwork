@@ -22,7 +22,7 @@ class PrivateKeyAction(argparse.Action):
 parser = argparse.ArgumentParser(description='Nickel tool. To get info on subcommands try: nickel.py send --help')
 
 sub = parser.add_subparsers(help='subcommands', dest='sub')
-sub.add_parser('info', help='displys node info')
+sub.add_parser('info', help='displays node info')
 
 harvestParser = sub.add_parser('harvest', help='start/stop harvesting')
 g = harvestParser.add_mutually_exclusive_group()
@@ -80,7 +80,7 @@ def signAndAnnounceTransaction(connector, jsonData):
 		print " [!] announce failed"
 	prettyPrint(j)
 
-c = NemConnect('127.0.0.1', 7890)
+c = NemConnect('62.75.171.41', 7890)
 
 if args.sub == 'info':
 	j = c.nodeInfo()
